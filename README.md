@@ -13,5 +13,5 @@ $ npm install
 3. To run the app
 
 ```bash
-$ npm run start
+$ npm run dev
 ```

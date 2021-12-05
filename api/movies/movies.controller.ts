@@ -12,9 +12,6 @@ export async function filter(req: Request, res: Response, next: NextFunction) {
     if (director) obj['director'] = director
     if (year) obj['year'] = year
 
-    console.log({ genres, director, year, page, maxPage })
-    console.log(obj)
-
     const newPage = parseInt(page as string) || 1
     const newRegister = parseInt(maxPage as string) || 10
 
@@ -29,7 +26,7 @@ export async function filter(req: Request, res: Response, next: NextFunction) {
     res.status(200).send(answer)
   } catch (error) {
     console.error(error)
-    next(error)
+    next()
   }
 }
 
@@ -65,7 +62,7 @@ export async function search(req: Request, res: Response, next: NextFunction) {
       res.status(200).send(answer.data)
     }
   } catch (error) {
-    console.log('Error!')
+    console.log(error)
     next()
   }
 }
